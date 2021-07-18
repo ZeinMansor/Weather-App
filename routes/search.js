@@ -33,14 +33,18 @@ router.post('/search', (req, res) => {
     request(url, (error, response, body) => {
         
         // handle the error
-        if(error){ throw error }
+        if(error){ 
+            console.log(error)
+            res.end()
+        }
+
 
         data = JSON.parse(body)
 
         const { lon, lat } = data.coord
 
-        const  maxTemp = data.main.temp_max - 272;
-        const  minTemp = data.main.temp_min - 272;
+        const  maxTemp = int(data.main.temp_max - 272);
+        const  minTemp = int(data.main.temp_min - 272);
 
         const city_name = data.name 
 
