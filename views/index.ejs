@@ -1,0 +1,48 @@
+<h1 class="center">Weather.API</h1>
+
+
+<form action="/search" method="POST">
+
+    <div class="row">
+
+      <div class="form-group col-sm-8">
+        <input name="query" type="text"  class="form-control" placeholder="Enter name/zip/code" required>
+      </div>
+  
+  
+  
+      <button type="submit" class="btn col-sm-3 btn-primary">Search</button>
+
+</form>
+
+<div class="row py-3">
+  <div class="col-md-8">
+    <table class="table table-active">
+      <thead>
+        <tr>
+          <th scope="col">Cordinations lon/lat</th>
+          <th scope="col">Temp max/min</th>
+          <th scope="col">Humidity</th>
+          <th scope="col">Wind speed/degree</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <td scope="row"><%= info.location.lon %>/<%= info.location.lat %></td>
+          <td><%= info.temp.maxTemp %>/<%= info.temp.minTemp %></td>
+          <td><%= info.humidity %> </td>
+          <td><%= info.wind.speed %> mph/<%= info.wind.deg %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="card border-primary mb-3 col-md-4" style="max-width: 20rem;">
+    <div class="card-header"><%= info.name %> </div>
+    <div class="card-body">
+      <h4 class="card-title">Primary card title</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
